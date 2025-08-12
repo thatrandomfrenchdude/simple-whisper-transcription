@@ -33,11 +33,11 @@ This app was built for the Snapdragon X Elite but designed to be platform agnost
         4. Click new to make an entry with `C:\Program Files\ffmpeg\bin`
         5. Click OK to save
         6. In a new PowerShell, run ffmpeg to verify installation
-1. Open a PowerShell instance and clone the repo
+2. Open a PowerShell instance and clone the repo
     ```
     git clone https://github.com/thatrandomfrenchdude/simple-whisper-transcription.git
     ```
-2. Create and activate your virtual environment with reqs
+3. Create and activate your virtual environment with reqs
     ```
     # 1. navigate to the cloned directory
     cd simple-whisper-transcription
@@ -51,11 +51,13 @@ This app was built for the Snapdragon X Elite but designed to be platform agnost
     # 4. install the requirements
     pip install -r requirements.txt
     ```
-3. Download the model from AI Hub
+4. Download the model from AI Hub*
     1. Create a directory called `models` at the project root
     2. From the project root, run `python -m qai_hub_models.models.whisper_base_en.export --target-runtime onnx`
-    3. Copy the model files from `build` to `models` 
-3. Create your `config.yaml` file with the following variables
+    3. Copy the model files from `build` to `models`
+    
+    *NOTE: There is a bug in some versions of AI Hub that may cause the model not to work. If you encounter any issues, try downloading these preconverted models from [this google drive](https://drive.google.com/drive/folders/14RzasqSFfgO4Wtbw_tZ1Qs3Y22F8lymY?usp=sharing) and **skip straight to step 5**.
+5. Create your `config.yaml` file with the following variables
     ```
     # audio settings
     "sample_rate": 16000          # Audio sample rate in Hz
