@@ -2,4 +2,5 @@
 /models/
 /whispr_venv/
 /dist/
+/build/
 config.yaml
