@@ -127,11 +127,16 @@ To create a standalone executable that can run without Python installed:
    - `WhisperTranscriber.exe` - The main executable
    - `launch_transcriber.bat` - Launcher that keeps console open
 
-3. **Run the executable**:
+3. **Copy the config file, mel_filters.npz, and models folder** to the `dist` folder:
+   - `config.yaml`
+   - `mel_filters.npz`
+   - `models/` (entire folder)
+
+4. **Run the executable**:
    - Double-click `WhisperTranscriber.exe` for direct execution
    - Double-click `launch_transcriber.bat` for better user experience (recommended)
 
-4. **For distribution**: Copy the entire `dist` folder to other computers. The executable includes all dependencies and will show transcription in a command-line interface.
+5. **For distribution**: Copy the entire `dist` folder to other computers. The executable includes all dependencies and will show transcription in a command-line interface.
 
 For detailed build instructions and troubleshooting, see [BUILD_EXECUTABLE.md](BUILD_EXECUTABLE.md).
 
