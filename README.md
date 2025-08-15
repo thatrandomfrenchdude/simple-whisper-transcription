@@ -4,14 +4,32 @@ Streaming transcription application built with [Whisper Base En](https://aihub.q
 
 ### Table of Contents
 [1. Purpose](#purpose)<br>
-[2. Implementation](#implementation)<br>
-[3. Setup](#setup)<br>
-[4. Usage](#usage)<br>
-[5. Contributing](#contributing)<br>
-[6. Code of Conduct](#code-of-conduct)<br>
+[2. Code Organization](#code-organization)<br>
+[3. Implementation](#implementation)<br>
+[4. Setup](#setup)<br>
+[5. Usage](#usage)<br>
+[6. Building an Executable](#building-an-executable)<br>
+[7. Contributing](#contributing)<br>
+[8. Code of Conduct](#code-of-conduct)<br>
 
 ### Purpose
 This is an extensible base app for custom language transcription workflows using Whisper. Base performance is acceptable and can be improved.
+
+### Code Organization
+This project provides two main implementations:
+
+**AI Hub Version (Original)**
+- `src/LiveTranscriber.py` - Main transcriber using Qualcomm AI Hub
+- `src/model.py` - ONNX model wrapper with QNN optimization
+- Requires AI Hub dependencies
+
+**Standalone Version (No AI Hub)**
+- `src/LiveTranscriber_standalone.py` - Standalone transcriber without AI Hub
+- `src/standalone_model.py` - Independent ONNX model wrapper
+- `src/standalone_whisper.py` - Custom Whisper implementation
+- No AI Hub dependencies required
+
+Both versions use the same ONNX model files and configuration but have different dependency requirements.
 
 ### Implementation
 This app was built for the Snapdragon X Elite but designed to be platform agnostic. Performance may vary on other hardware.
@@ -75,10 +93,20 @@ This app was built for the Snapdragon X Elite but designed to be platform agnost
     ```
 
 ### Usage
-With the virtual environment active, run the code:
+
+#### AI Hub Version (Original)
+With the virtual environment active, run the original AI Hub version:
 ```
 python src\LiveTranscriber.py 
 ```
+
+#### Standalone Version (No AI Hub)
+With the virtual environment active, run the standalone version:
+```
+python src\LiveTranscriber_standalone.py 
+```
+
+Both versions provide the same functionality but use different model loading approaches. The standalone version is more portable and doesn't require AI Hub dependencies.
 
 ### Building an Executable
 To create a standalone executable that can run without Python installed:

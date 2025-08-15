@@ -1,6 +1,7 @@
 """
 PyInstaller build script for Simple Whisper Transcription
-This script compiles the LiveTranscriber.py into a standalone executable.
+This script compiles the LiveTranscriber_standalone.py (standalone version) into a standalone executable.
+The standalone version is used because it has fewer dependencies and is more portable.
 """
 
 import os

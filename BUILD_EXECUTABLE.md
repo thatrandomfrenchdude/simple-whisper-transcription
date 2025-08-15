@@ -1,6 +1,23 @@
 # Building an Executable
 
-This project includes scripts to build a standalone executable using PyInstaller. The executable will include all dependencies and can be run on Windows machines without requiring Python or the virtual environment.
+This project includes scripts to build a standalone executable using PyInstaller. The executable uses the **standalo2. **Check the console output** for these key messages:
+   - `🚀 Starting Standalone Whisper Transcription`
+   - `✅ Configuration loaded successfully`
+   - `✅ Model files found`
+   - `🤖 Loading Standalone Whisper model...`
+   - `✅ Model loaded successfully!`
+   - `✅ Microphone stream initialized...`
+
+3. **If model loading fails**, look for:n** of the transcriber (`LiveTranscriber_standalone.py`) which doesn't require AI Hub dependencies, making it more portable and suitable for distribution.
+
+## Code Version Used
+
+The executable is built from:
+- **Main**: `src/LiveTranscriber_standalone.py`
+- **Model**: `src/standalone_model.py` and `src/standalone_whisper.py`
+- **Benefits**: No AI Hub dependencies, more portable, easier distribution
+
+The standalone version provides the same transcription functionality as the original AI Hub version but with reduced dependencies.
 
 ## Prerequisites
 
@@ -87,7 +104,7 @@ To distribute the executable to other computers:
 ### Common Issues
 
 **"No output or console messages visible"**
-- The executable uses a debug version with enhanced console output
+- The executable includes enhanced console output for debugging
 - Make sure you're running `launch_transcriber.bat` instead of the exe directly
 - Try running the exe from a command prompt to see any error messages
 - Use the `diagnose_executable.bat` script to check for missing files
@@ -117,7 +134,7 @@ To distribute the executable to other computers:
 
 ### Debug Scripts
 
-Use these scripts to diagnose issues:
+Use this script to diagnose issues:
 
 **`diagnose_executable.bat`** - Comprehensive diagnostic script that:
 - Checks if all required files are present
@@ -125,26 +142,15 @@ Use these scripts to diagnose issues:
 - Runs the executable and captures output
 - Provides detailed error information
 
-**`test_python_version.bat`** - Tests the debug Python version to compare with executable:
-- Verifies the virtual environment is activated
-- Runs the debug version with enhanced output
-- Helps identify if the issue is specific to PyInstaller
-
 ### Debugging Steps
 
-1. **First, test the Python version**:
-   ```cmd
-   test_python_version.bat
-   ```
-   This will show you detailed output and help identify if the issue is with the model loading or PyInstaller.
-
-2. **Run the diagnostic script**:
+1. **Run the diagnostic script**:
    ```cmd
    diagnose_executable.bat
    ```
    This will check all files and run the executable with detailed output.
 
-3. **Check the console output** for these key messages:
+2. **Check the console output** for these key messages:
    - `🚀 Starting Simple Whisper Transcription`
    - `✅ Configuration loaded successfully`
    - `✅ Model files found`
@@ -152,7 +158,7 @@ Use these scripts to diagnose issues:
    - `✅ Model loaded successfully!`
    - `✅ Microphone stream initialized...`
 
-4. **If model loading fails**, look for:
+3. **If model loading fails**, look for:
    - QNN provider warnings (normal, should fall back to CPU)
    - File path errors
    - ONNX runtime errors
