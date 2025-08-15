@@ -80,6 +80,33 @@ With the virtual environment active, run the code:
 python src\LiveTranscriber.py 
 ```
 
+### Building an Executable
+To create a standalone executable that can run without Python installed:
+
+1. **With your virtual environment activated**, run the build script:
+   ```powershell
+   # PowerShell (recommended)
+   .\build.ps1
+   
+   # Or Command Prompt
+   build.bat
+   
+   # Or manually
+   python build_executable.py
+   ```
+
+2. **Find your executable** in the `dist` folder:
+   - `WhisperTranscriber.exe` - The main executable
+   - `launch_transcriber.bat` - Launcher that keeps console open
+
+3. **Run the executable**:
+   - Double-click `WhisperTranscriber.exe` for direct execution
+   - Double-click `launch_transcriber.bat` for better user experience (recommended)
+
+4. **For distribution**: Copy the entire `dist` folder to other computers. The executable includes all dependencies and will show transcription in a command-line interface.
+
+For detailed build instructions and troubleshooting, see [BUILD_EXECUTABLE.md](BUILD_EXECUTABLE.md).
+
 ### Contributing
 Contributions to extend the functionality are welcome and encouraged. Please review the [contribution guide](CONTRIBUTING.md) prior to submitting a pull request. 
 
